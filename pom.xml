@@ -2,8 +2,13 @@
     	xmlns="http://maven.apache.org/POM/4.0.0"
     	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     	<modelVersion>4.0.0</modelVersion>
-    	<groupId>proj</groupId>
+	<!-- A POM requires that its groupId, artifactId, and version be configured. 
+	These three values form the project's fully qualified artifact name. 
+	This is in the form of <groupId>:<artifactId>:<version>.
+	As for the example above, its fully qualified artifact name is "com.company.proj:proj:1". -->
+    	<groupId>com.company</groupId>
     	<artifactId>proj</artifactId>
+	<!-- build.number is injected by Jenkins, see -D parameter in build_settings_jenkins.png -->
     	<version>projRelease-${build.number}</version>
     	<properties>
     		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,6 +21,7 @@
     				<groupId>org.apache.maven.plugins</groupId>
     				<artifactId>maven-jar-plugin</artifactId>
     				<version>3.1.0</version>
+				<!-- Defining the class containing the main method -->
     				<configuration>
     					<archive>
     						<manifest>
@@ -70,7 +76,7 @@
     		</plugins>
     	</build>
     	<dependencies>
-			<!-- those are just some examples -->
+		<!-- those are just some examples, add the dependencies of your project here -->
     		<dependency>
     			<groupId>org.apache.httpcomponents</groupId>
     			<artifactId>httpclient</artifactId>
@@ -87,6 +93,7 @@
     			<version>1.3.2</version>
     		</dependency>
     	</dependencies>
+	<!-- Define where the releases will be pushed to -->
     	<distributionManagement>
     		<repository>
     			<id>central</id>
