@@ -3,6 +3,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <servers>
         <server>
+          <!-- Username & Password of the Artifactory User used -->
+          <!-- See https://www.jfrog.com/confluence/display/RTF20/Using+Secured+Passwords+in+Settings.xml for the usage of secured passwords in this XML -->
           <username>deployuser</username>
           <password>************</password>
           <id>central</id>
@@ -16,6 +18,7 @@
       <profiles>
         <profile>
           <repositories>
+            <!-- Repositories defined on your Artifactory server -->
             <repository>
               <snapshots>
                 <enabled>false</enabled>
@@ -31,6 +34,7 @@
               <url>http://artifactory.local.ch:8081/artifactory/libs-snapshot</url>
             </repository>
           </repositories>
+        <!-- Plugin repositories defined on your Artifactory server -->
           <pluginRepositories>
             <pluginRepository>
               <snapshots>
